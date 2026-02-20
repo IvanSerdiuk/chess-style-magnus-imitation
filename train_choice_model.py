@@ -102,11 +102,13 @@ def evaluate_by_position(y, probs, engine_scores, groups, lam_grid):
 
 def choose_best_lam(lam_metrics: dict[float, dict[str, float]]) -> float:
     # Prefer highest match; on ties prefer lower cp loss, then smaller lambda.
-    best = None
+    best: tuple[tuple[float, float, float], float] | None = None
     for lam, m in lam_metrics.items():
         key = (m["match"], -m["avg_cp_loss"], -lam)
         if best is None or key > best[0]:
             best = (key, lam)
+    if best is None:
+        raise ValueError("lam_metrics is empty")
     return float(best[1])
 
 
