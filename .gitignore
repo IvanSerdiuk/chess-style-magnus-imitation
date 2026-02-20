@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.mypy_cache/
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# Local/editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Data and model artifacts (rebuild locally)
+*.pgn
+*.pkl
+*.zip
+
+# Documents / coursework not needed for public repo
+*.docx
+*.pdf
+AI Class/
